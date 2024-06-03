@@ -30,6 +30,45 @@ export const createContainerTab = () => {
   return div
 }
 
+const MAIN_INFO = {
+  img: '/img/pic1.png',
+  title: 'Що таке база знань?',
+  text: 'База знаний — база даних, що містить правила виводу та інформацію про людський досвід і знання в певній предметній області. В самоосвітніх системах база знань також містить інформацію, яка є результатом вирішення попередніх завдань.',
+  button: `Перейти до ком'юніті у Телеграм`,
+}
+
+export const createMain = () => {
+  const main = createElement('main', 'main')
+
+  const img = createElement('img', 'main__img')
+  img.src = MAIN_INFO.img
+  main.appendChild(img)
+
+  const title = createElement(
+    'div',
+    'main__title',
+    MAIN_INFO.title,
+  )
+  main.appendChild(title)
+
+  const textContainer = createElement('div', 'main__text')
+  const paragraph = createElement(
+    'p',
+    'main__paragraph',
+    MAIN_INFO.text,
+  )
+  textContainer.appendChild(paragraph)
+  main.appendChild(textContainer)
+
+  const button = createElement(
+    'button',
+    'main__button',
+    MAIN_INFO.button,
+  )
+  main.appendChild(button)
+
+  return main
+}
 //+++++++++++++++++++++++++++++++
 
 export const createElement = (tag, className, text) => {
