@@ -1,4 +1,36 @@
 import { Value } from 'sass'
+//++++++++++++++++++++++++
+const TAB_BUTTON_LIST = [
+  {
+    active: false,
+    info: 'База знань',
+  },
+  {
+    active: true,
+    info: 'Інформація',
+  },
+]
+
+export const createContainerTab = () => {
+  const div = createElement('tabs', 'tab__list')
+
+  TAB_BUTTON_LIST.forEach((params) => {
+    const tab = createElement(
+      'div',
+      params.active
+        ? 'tabs tab-button active-tab'
+        : 'tabs tab-button',
+    )
+
+    tab.innerText = params.info
+
+    div.insertAdjacentElement('beforeend', tab)
+  })
+
+  return div
+}
+
+//+++++++++++++++++++++++++++++++
 
 export const createElement = (tag, className, text) => {
   const elem = document.createElement(tag)
